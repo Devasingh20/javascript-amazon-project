@@ -111,5 +111,12 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
       quantity:1
     })*/
     console.log(cart);
+    //totalCartQuantity
+    let cartQuantity=0;
+    cart.forEach((item)=>{
+      cartQuantity+=item.quantity;
+    })
+    console.log("total quantity in cart : ",cartQuantity);
+    document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
   })
 })
