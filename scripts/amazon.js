@@ -36,6 +36,9 @@
   priceCents: 1899
 }];*/
 
+//import cart from cart.js
+
+import { cart } from '../data/cart.js'
 let productHTML = '';
 products.forEach((product) => {
   productHTML += `<div class="product-container">
@@ -100,7 +103,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
       }
     });
     const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-    const quantity=Number(quantitySelector.value);
+    const quantity = Number(quantitySelector.value);
     if (matchingItem) {
       matchingItem.quantity += quantity;
     }
@@ -117,19 +120,19 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     })*/
     console.log(cart);
     //totalCartQuantity
-    let cartQuantity=0;
-    cart.forEach((item)=>{
-      cartQuantity+=item.quantity;
+    let cartQuantity = 0;
+    cart.forEach((item) => {
+      cartQuantity += item.quantity;
     })
-    console.log("total quantity in cart : ",cartQuantity);
-    document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
+    console.log("total quantity in cart : ", cartQuantity);
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
     const addedMessage = document.querySelector(
-        `.js-added-to-cart-${productId}`
-      );
+      `.js-added-to-cart-${productId}`
+    );
     addedMessage.classList.add('visible');
     setTimeout(() => {
       addedMessage.classList.remove('visible');
     }, 2000);
-     
+
   })
 })
