@@ -1,0 +1,6 @@
+export function formatPrice(priceCents) {
+  if (typeof priceCents !== 'number') {
+    throw new Error('Price must be a number');
+  }
+  return (priceCents / 100).toFixed(2);
+}
