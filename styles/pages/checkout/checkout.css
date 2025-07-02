@@ -13,9 +13,11 @@
   margin-left: auto;
   margin-right: auto;
 }
-body{
+
+body {
   background-color: rgb(249, 246, 234);
 }
+
 .page-title {
   font-weight: 700;
   font-size: 22px;
@@ -162,6 +164,32 @@ body{
 .delivery-option-price {
   color: rgb(120, 120, 120);
   font-size: 15px;
+}
+
+.quantity-input {
+  width: 30px;
+  margin: 5px;
+  border-radius: 3px;
+  border: 1px solid red;
+  display: none;
+}
+
+.quantity-save-link {
+  display: none;
+  margin: 5px;
+}
+
+.is-editing-quantity .quantity-input {
+  display: initial;
+}
+
+.is-editing-quantity .quantity-save-link {
+  display: initial;
+}
+
+
+.is-editing-quantity .js-update-link {
+  display: none;
 }
 
 .payment-summary-title {
