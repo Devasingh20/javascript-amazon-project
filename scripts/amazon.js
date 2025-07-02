@@ -1,5 +1,5 @@
 
-import { cart, addToCart,updateCartQuantity } from '../data/cart.js'
+import { cart, addToCart } from '../data/cart.js'
 import { products } from '../data/products.js'
 let productHTML = '';
 products.forEach((product) => {
@@ -57,21 +57,27 @@ document.querySelector('.js-product-grid').innerHTML = productHTML;
 
 
 
-// function updateCartQuantity() {
-//   let cartQuantity = 0;
-//   cart.forEach((item) => {
-//     cartQuantity += item.quantity;
-//   })
-//   console.log("total quantity in cart : ", cartQuantity);
-//   document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-// }
+function updateCartQuantity() {
+  let cartQuantity = 0;
+  cart.forEach((item) => {
+    cartQuantity += item.quantity;
+  })
+  console.log("total quantity in cart : ", cartQuantity);
+  localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
+  document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
+}
+updateCartQuantity();
+
+  const savedQuantity = JSON.parse(localStorage.getItem('cartQuantity')) || 0;
+  document.querySelector('.js-cart-quantity').innerHTML = savedQuantity;
+
 
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   button.addEventListener('click', () => {
     const productId = button.dataset.productId;
     addToCart(productId);
     updateCartQuantity();
-    localStorage.removeItem('item.quantity');
+
 
 
     console.log(cart);

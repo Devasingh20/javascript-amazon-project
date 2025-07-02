@@ -31,27 +31,6 @@ export function addToCart(productId) {
   }
   saveToLocalStorge();
 }
-
-export function updateCartQuantity() {
-  let cartQuantity = 0;
-  cart.forEach((item) => {
-    cartQuantity += item.quantity;
-
-  })
-  // function saveCartQuantity() {
-  //   localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
-  // }
-  //saveCartQuantity();
-  console.log("total quantity in cart : ", cartQuantity);
-  document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-}
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const savedQuantity = JSON.parse(localStorage.getItem('cartQuantity')) || 0;
-//   document.querySelector('.js-cart-quantity').innerHTML = savedQuantity;
-// });
-
-
 export function removeFromCart(productId) {
   let newCart = [];
   cart.forEach((item) => {

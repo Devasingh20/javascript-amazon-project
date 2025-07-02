@@ -9,7 +9,7 @@ cart.forEach((item) => {
     if (product.id === productId) {
       matchingProduct = product;
     }
-  })
+  });
   console.log("matching product : ", matchingProduct);
   cartHTML += `<div class="cart-item-container js-cart-${matchingProduct.id}">
           <div class="delivery-date">
@@ -94,3 +94,8 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
 
   });
 });
+let cartQuantity = 0;
+  cart.forEach((item) => {
+    cartQuantity += item.quantity;
+  });
+  document.querySelector('.return-to-home-link').innerHTML=`${cartQuantity}items`
