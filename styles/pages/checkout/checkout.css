@@ -192,6 +192,10 @@ body {
   display: none;
 }
 
+.is-editing-quantity .quantity-label {
+  display: none;
+}
+
 .payment-summary-title {
   font-weight: 700;
   font-size: 18px;

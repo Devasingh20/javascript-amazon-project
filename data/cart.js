@@ -42,3 +42,24 @@ export function removeFromCart(productId) {
   console.log("cart after removing item : ", cart);
   saveToLocalStorge();
 }
+
+// export function updatedCartQuantity() {
+//   let cartQuantity = 0;
+//   cart.forEach((item) => {
+//     cartQuantity += item.quantity;
+//   });
+//   return updatedCartQuantity;
+// }
+
+export function updateInputQuantity(productId, newQuantity) {
+  let matchingItem;
+  cart.forEach((item) => {
+    if (productId === item.productId) {
+      matchingItem = item;
+    }
+  });
+  if (matchingItem) {
+    matchingItem.quantity = newQuantity;
+  }
+  saveToLocalStorge();
+}

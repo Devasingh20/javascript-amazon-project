@@ -64,12 +64,12 @@ function updateCartQuantity() {
   })
   console.log("total quantity in cart : ", cartQuantity);
   localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
-  document.querySelector('.js-cart-quantity').innerHTML=cartQuantity;
+  document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
 updateCartQuantity();
 
-  const savedQuantity = JSON.parse(localStorage.getItem('cartQuantity')) || 0;
-  document.querySelector('.js-cart-quantity').innerHTML = savedQuantity;
+const savedQuantity = JSON.parse(localStorage.getItem('cartQuantity')) || 0;
+document.querySelector('.js-cart-quantity').innerHTML = savedQuantity;
 
 
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
