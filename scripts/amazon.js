@@ -2,6 +2,7 @@
 import { cart, addToCart } from '../data/cart.js'
 import { products } from '../data/products.js'
 let productHTML = '';
+//external libraries hello();
 products.forEach((product) => {
   productHTML += `<div class="product-container">
         <div class="product-image-container">
