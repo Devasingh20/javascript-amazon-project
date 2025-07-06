@@ -8,6 +8,7 @@ const today = dayjs();
 const deliveryDate = today.add(7, 'day');
 const dateString = deliveryDate.format('dddd, MMMM D');
 console.log("Delivary date : ", dateString);
+function renderOrderSummary(){
 let cartHTML = '';
 cart.forEach((item) => {
   const productId = item.productId;
@@ -101,7 +102,10 @@ document.querySelectorAll('.js-delivery-option').forEach((element)=>{
   element.addEventListener('click',()=>{
     const productId=element.dataset.productId;
     const deliveryOptionId=element.dataset.deliveryOptionId;
+    console.log("productId : ", productId);
+    console.log("deliveryOptionId",deliveryOptionId);
     updateDeliveryOption(productId,deliveryOptionId);
+    renderOrderSummary();
   })
 })
 document.querySelectorAll('.js-delete-link').forEach((link) => {
@@ -149,3 +153,5 @@ document.querySelectorAll('.js-save-link').forEach((link) => {
     updateCheckout();
   });
 });
+}
+renderOrderSummary();
