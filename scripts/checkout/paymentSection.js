@@ -2,36 +2,39 @@ import { cart } from '../../data/cart.js';
 import { getDeliveryOption } from '../../data/deliveryOptions.js';
 import { products } from '../../data/products.js';
 import formatPrice from '../utils/money.js';
-import { renderOrderSummary } from './orderSummary.js';
 export function renderPaymentSummary() {
-    let price = 0;
-    let shippingPrice = 0;
-    cart.forEach((item) => {
-        let matchingProduct;
-        products.forEach((product) => {
-            if (product.id === item.productId) {
-                matchingProduct = product;
-            }
-        });
-        price += matchingProduct.priceCents * item.quantity;
-        const deliveryOption = getDeliveryOption(item.deliveryOptionId);
-        shippingPrice += deliveryOption.priceCents;
+  let price = 0;
+  let shippingPrice = 0;
+  cart.forEach((item) => {
+    let matchingProduct;
+    products.forEach((product) => {
+      if (product.id === item.productId) {
+        matchingProduct = product;
+      }
     });
-    const totalBeforeTax = price + shippingPrice;
-    const taxCents = totalBeforeTax * 0.1;
-    const totalCents = totalBeforeTax + taxCents;
-    console.log(price);
-    console.log(shippingPrice);
-    console.log(totalBeforeTax);
-    console.log(taxCents.toFixed(2));
-    console.log(totalCents);
-    let paymentSummaryHTML = `
+    price += matchingProduct.priceCents * item.quantity;
+    const deliveryOption = getDeliveryOption(item.deliveryOptionId);
+    shippingPrice += deliveryOption.priceCents;
+  });
+  const totalBeforeTax = price + shippingPrice;
+  const taxCents = totalBeforeTax * 0.1;
+  const totalCents = totalBeforeTax + taxCents;
+  console.log(price);
+  console.log(shippingPrice);
+  console.log(totalBeforeTax);
+  console.log(taxCents.toFixed(2));
+  console.log(totalCents);
+  let cartQuantity = 0;
+  cart.forEach((item) => {
+    cartQuantity += item.quantity;
+  })
+  let paymentSummaryHTML = `
     <div class="payment-summary-title">
           Order Summary
         </div>
 
         <div class="payment-summary-row">
-          <div>Items (3):</div>
+          <div>Items (${cartQuantity}):</div>
           <div class="payment-summary-money">$${formatPrice(price)}</div>
         </div>
 
@@ -58,5 +61,5 @@ export function renderPaymentSummary() {
         <button class="place-order-button button-primary">
           Place your order
         </button>`
-    document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
-  }
+  document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
+}
