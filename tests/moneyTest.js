@@ -20,7 +20,7 @@ else {
 }
 
 console.log('rounds upto the nearest cent')
-if (formatPrice(2000.4) === '20.00') {
+if (formatPrice(2000.5) === '20.01') {
     console.log('passed');
 }
 else {
