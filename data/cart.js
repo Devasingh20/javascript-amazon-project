@@ -25,16 +25,16 @@ export function addToCart(productId) {
       matchingItem = item;
     }
   });
-  // const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
+  // const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);// comment this and below line for testing .
   // const quantity = Number(quantitySelector.value);
   if (matchingItem) {
-    // matchingItem.quantity += quantity;
+    // matchingItem.quantity += quantity;  // comment for testing.
     matchingItem.quantity += 1;
   }
   else {
     cart.push({
       productId: productId,
-      //quantity: quantity,
+      //quantity: quantity,  //comment for testing.
       quantity: 1,
       deliveryOptionId: '2'
     })
