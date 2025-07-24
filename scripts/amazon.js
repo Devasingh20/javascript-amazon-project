@@ -39,6 +39,7 @@ products.forEach((product) => {
           </select>
         </div>
         ${product.extraInfoHTML()}
+        ${product.warrantyInfoHTML()}
         <div class="product-spacer"></div>
         <div class="added-to-cart js-added-to-cart-${product.id}">
           <img src="images/icons/checkmark.png">
