@@ -75,7 +75,7 @@ export class Appliance extends Product {
 //here we use backend for products
 export let products = [];
 
-export function loadProducts(renderProduct) {
+export function loadProducts(fun) {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -89,7 +89,7 @@ export function loadProducts(renderProduct) {
         // Default to Product class for non-clothing items
         return new Product(productDetails);
       });
-      renderProduct();
+      fun();
     }
   }
   xhr.open('GET', 'https://supersimplebackend.dev/products', true);

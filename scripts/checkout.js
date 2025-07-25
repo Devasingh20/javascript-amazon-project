@@ -9,7 +9,8 @@ import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymentSummary } from "./checkout/paymentSection.js";
 import { loadProducts } from "../data/products.js";
 loadProducts(() => {
-    renderPaymentSummary();
     renderOrderSummary();
+    renderPaymentSummary();
+    
 })
 

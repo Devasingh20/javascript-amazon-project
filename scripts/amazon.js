@@ -97,4 +97,5 @@ function renderProductsGrid() {
 
     })
   })
+  return renderProductsGrid;
 }
