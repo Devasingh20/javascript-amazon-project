@@ -17,12 +17,12 @@
 
 
 
-const xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://supersimplebackend.dev/hello', true);
+// const xhr = new XMLHttpRequest();
+// xhr.open('GET', 'https://supersimplebackend.dev/hello', true);
 
-xhr.onreadystatechange = function () { // This function will be called whenever the readyState changes
-    if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log((xhr.responseText)); // This will log the response from the server
-    }
-}
-xhr.send();
+// xhr.onreadystatechange = function () { // This function will be called whenever the readyState changes
+//     if (xhr.readyState === 4 && xhr.status === 200) {
+//         console.log((xhr.responseText)); // This will log the response from the server
+//     }
+// }
+// xhr.send();

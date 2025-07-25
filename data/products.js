@@ -70,7 +70,35 @@ export class Appliance extends Product {
 // });
 // console.log(tshirt);
 
-export const products = [
+
+
+//here we use backend for products
+export let products = [];
+
+export function loadProducts(renderProduct) {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      products = JSON.parse(xhr.response).map((productDetails) => {
+        if (productDetails.type === "clothing") {
+          return new Clothing(productDetails);
+        }
+        if (productDetails.type === "appliance") {
+          return new Appliance(productDetails);
+        }
+        // Default to Product class for non-clothing items
+        return new Product(productDetails);
+      });
+      renderProduct();
+    }
+  }
+  xhr.open('GET', 'https://supersimplebackend.dev/products', true);
+  xhr.send();
+}
+loadProducts();
+
+// comment the below code because we use backend for products.
+/*export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
@@ -741,4 +769,4 @@ export const products = [
   // Default to Product class for non-clothing items
   return new Product(productDetails);
 });
-
+*/
