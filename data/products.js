@@ -89,6 +89,7 @@ export function loadProducts(fun) {
         // Default to Product class for non-clothing items
         return new Product(productDetails);
       });
+      console.log('Load Products')
       fun();
     }
   }
