@@ -90,7 +90,6 @@ export function loadCart(fun){
   xhr.open('GET', 'https://supersimplebackend.dev/cart', true);
   xhr.onreadystatechange = function(){
     if(xhr.readyState === 4 && xhr.status === 200){
-      console.log(xhr.response);
       fun();
     }
   }

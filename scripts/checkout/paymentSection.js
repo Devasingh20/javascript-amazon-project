@@ -19,11 +19,6 @@ export function renderPaymentSummary() {
   const totalBeforeTax = price + shippingPrice;
   const taxCents = totalBeforeTax * 0.1;
   const totalCents = totalBeforeTax + taxCents;
-  console.log(price);
-  console.log(shippingPrice);
-  console.log(totalBeforeTax);
-  console.log(taxCents.toFixed(2));
-  console.log(totalCents);
   let cartQuantity = 0;
   cart.forEach((item) => {
     cartQuantity += item.quantity;

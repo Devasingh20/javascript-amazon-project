@@ -7,23 +7,36 @@
 
 import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymentSummary } from "./checkout/paymentSection.js";
-import { loadProducts , loadProductsFetch} from "../data/products.js";
+import { loadProducts, loadProductsFetch } from "../data/products.js";
 import { loadCart } from "../data/cart.js";
 
-
-// using promise.all and fetch to load products and cart before rendering order summary and payment summary
-Promise.all([
-    loadProductsFetch(),
-    new Promise((resolve) => {
+//use async and await for loading products and cart.
+async function pageLoad() {
+    console.log('page load');
+    await loadProductsFetch();
+    await new Promise((resolve) => {
         loadCart(() => {
             resolve('Cart loaded');
         });
     })
-]).then((result) => {
-    console.log(result);
     renderOrderSummary();
     renderPaymentSummary();
-})
+}
+pageLoad()
+
+// using promise.all and fetch to load products and cart before rendering order summary and payment summary
+// Promise.all([
+//     loadProductsFetch(),
+//     new Promise((resolve) => {
+//         loadCart(() => {
+//             resolve('Cart loaded');
+//         });
+//     })
+// ]).then((result) => {
+//     console.log(result);
+//     renderOrderSummary();
+//     renderPaymentSummary();
+// })
 
 
 //using promise.all to load products and cart (using XMLHttpRequest) before rendering order summary and payment summary

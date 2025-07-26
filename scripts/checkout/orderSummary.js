@@ -15,19 +15,14 @@ export function renderOrderSummary() {
   let cartHTML = '';
   cart.forEach((item) => {
     const productId = item.productId;
-    console.log(cart)
     let matchingProduct;
     products.forEach((product) => {
       if (product.id === productId) {
         matchingProduct = product;
       }
     });
-    console.log("matching product : ", matchingProduct);
-
     const deliveryOptionId = item.deliveryOptionId;
-    console.log("deliveryOptionId : ", deliveryOptionId);
     let deliveryOption = getDeliveryOption(deliveryOptionId);
-    console.log("deliveryOption : ", deliveryOption);
     const today = dayjs();
     const deliveryDate = today.add(deliveryOption.deliveryDays, 'day');
     const dateString = deliveryDate.format('dddd, MMMM D');
@@ -100,8 +95,6 @@ export function renderOrderSummary() {
     element.addEventListener('click', () => {
       const productId = element.dataset.productId;
       const deliveryOptionId = element.dataset.deliveryOptionId;
-      console.log("productId : ", productId);
-      console.log("deliveryOptionId", deliveryOptionId);
       updateDeliveryOption(productId, deliveryOptionId);
       renderOrderSummary();
       renderPaymentSummary();
@@ -132,7 +125,6 @@ export function renderOrderSummary() {
   document.querySelectorAll('.js-update-link').forEach((link) => {
     link.addEventListener('click', () => {
       const productId = link.dataset.productId;
-      console.log(productId);
       const container = document.querySelector(`.js-cart-${productId}`);
       container.classList.add('is-editing-quantity');
 
@@ -142,7 +134,6 @@ export function renderOrderSummary() {
   document.querySelectorAll('.js-save-link').forEach((link) => {
     link.addEventListener('click', () => {
       const productId = link.dataset.productId;
-      console.log(productId);
       const container = document.querySelector(`.js-cart-${productId}`);
       container.classList.remove('is-editing-quantity');
       const quantity = document.querySelector(`.js-cart-quantity-${productId}`);
