@@ -12,13 +12,17 @@ import { loadCart } from "../data/cart.js";
 
 //use async and await for loading products and cart.
 async function pageLoad() {
-    console.log('page load');
-    await loadProductsFetch();
-    await new Promise((resolve) => {
-        loadCart(() => {
-            resolve('Cart loaded');
-        });
-    })
+    try {
+        console.log('page load');
+        await loadProductsFetch();
+        await new Promise((resolve) => {
+            loadCart(() => {
+                resolve('Cart loaded');
+            });
+        })
+    }catch(error){
+        console.log('Unexpected Error. Please try again later.')
+    }
     renderOrderSummary();
     renderPaymentSummary();
 }
