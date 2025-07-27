@@ -5,7 +5,7 @@
 // //import '../data/cart-class.js'  //this will only run all the code inside the cart-class.js file.
 // //import '../data/backend-practice.js'
 
-import { renderOrderSummary } from "./checkout/orderSummary.js";
+import { renderOrderSummary } from "./checkout/orderSummary.js"; 
 import { renderPaymentSummary } from "./checkout/paymentSection.js";
 import { loadProducts, loadProductsFetch } from "../data/products.js";
 import { loadCart } from "../data/cart.js";
