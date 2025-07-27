@@ -62,7 +62,7 @@ function renderProductsGrid() {
 
 
 
-  function updateCartQuantity() {
+   function updateCartQuantity() {
     let cartQuantity = 0;
     cart.forEach((item) => {
       cartQuantity += item.quantity;

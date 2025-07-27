@@ -9,5 +9,5 @@ export default function formatPrice(priceCents) {
   if (typeof priceCents !== 'number') {
     throw new Error('Price must be a number');
   }
-  return (Math.round(priceCents) / 100).toFixed(2);
+  return (Math.round(priceCents) / 100).toFixed(2)
 }

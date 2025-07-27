@@ -92,7 +92,22 @@ button {
   background-color: rgb(246, 207, 8);
 }
 
-
+.link{
+  color: rgb(33,33,33);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgb(220, 247, 66);
+  box-shadow: 0 2px 5px rgba(213, 217, 217, 0.7);
+}
+.link:hover {
+  background-color: rgb(246, 207, 8);
+}
+.empty{
+  opacity: 0;
+  margin-bottom: 12px;
+}
 /* Styles for dropdown selectors. */
 select {
   color: rgb(33, 33, 33);

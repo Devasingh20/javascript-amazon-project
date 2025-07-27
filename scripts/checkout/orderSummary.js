@@ -39,7 +39,7 @@ export function renderOrderSummary() {
                 ${matchingProduct.name}
               </div>
               <div class="product-price">
-                $${formatPrice(matchingProduct.priceCents)};
+                $${formatPrice(matchingProduct.priceCents)}
               </div>
               <div class="product-quantity js-quantity-${matchingProduct.id}">
                 <span>
@@ -66,7 +66,6 @@ export function renderOrderSummary() {
         </div>`;
   });
   document.querySelector('.order-summary').innerHTML = cartHTML;
-
   function deliveryOptionsHTML(matchingProduct, item) {
     let html = '';
     deliveryOptions.forEach((deliveryOption) => {
@@ -106,6 +105,10 @@ export function renderOrderSummary() {
       removeFromCart(productId);
       const container = document.querySelector(`.js-cart-${productId}`);
       container.remove();
+      if (cart.length === 0) {
+        const emptyCartMessage = document.querySelector('.empty');
+        emptyCartMessage.style.opacity = 1;
+      }
       renderPaymentSummary();
       updateCheckout();
     });
@@ -143,4 +146,8 @@ export function renderOrderSummary() {
       renderPaymentSummary();
     });
   });
+  if (cart.length === 0) {
+    const emptyCartMessage = document.querySelector('.empty');
+    emptyCartMessage.style.opacity = 1;
+  }
 }
