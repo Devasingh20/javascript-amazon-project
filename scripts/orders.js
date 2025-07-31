@@ -1,9 +1,9 @@
-import {getProduct, loadProductsFetch} from '../data/products.js';
-import {orders} from '../data/orders.js';
+import { getProduct, loadProductsFetch } from '../data/products.js';
+import { orders } from '../data/orders.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import formatCurrency from './utils/money.js';
 import { cart } from '../data/cart.js';
-import {addToCart} from '../data/cart.js';
+import { addToCart } from '../data/cart.js';
 
 
 
@@ -55,9 +55,8 @@ async function loadPage() {
             ${product.name}
           </div>
           <div class="product-delivery-date">
-            Arriving on: ${
-              dayjs(productDetails.estimatedDeliveryTime).format('MMMM D')
-            }
+            Arriving on: ${dayjs(productDetails.estimatedDeliveryTime).format('MMMM D')
+        }
           </div>
           <div class="product-quantity">
             Quantity: ${productDetails.quantity}
@@ -95,23 +94,22 @@ async function loadPage() {
           <span class="buy-again-message">Buy it again</span>
         `;
       }, 1000);
-       updateCartQuantity();
+      updateCartQuantity();
     });
   });
 }
 loadPage();
 
 function updateCartQuantity() {
-    let cartQuantity = 0;
-    cart.forEach((item) => {
-      cartQuantity += item.quantity;
-    })
-    console.log("total quantity in cart : ", cartQuantity);
-    localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
-    document.querySelector('.cart-quantity').innerHTML = cartQuantity;
-  }
-  updateCartQuantity();
- 
+  let cartQuantity = 0;
+  cart.forEach((item) => {
+    cartQuantity += item.quantity;
+  })
+  console.log("total quantity in cart : ", cartQuantity);
+  localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity));
+  document.querySelector('.cart-quantity').innerHTML = cartQuantity;
+}
+updateCartQuantity();
 
-  
-  
+
+
