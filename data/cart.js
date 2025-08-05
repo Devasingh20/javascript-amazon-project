@@ -25,17 +25,17 @@ export function addToCart(productId) {
       matchingItem = item;
     }
   });
-  // const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);// comment this and below line for testing .
-  // const quantity = Number(quantitySelector.value);
+  const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);// comment this and below line for testing .
+  const quantity = Number(quantitySelector.value);
   if (matchingItem) {
-    // matchingItem.quantity += quantity;  // comment for testing.
-    matchingItem.quantity += 1;
+    matchingItem.quantity += quantity;  // comment for testing.
+    // matchingItem.quantity += 1;      //uncomment when testing is done
   }
   else {
     cart.push({
       productId: productId,
-      // quantity: quantity,  //comment for testing.
-      quantity: 1,
+      quantity: quantity,  //comment for testing.
+      // quantity: 1,         //uncomment when testing is done
       deliveryOptionId: '2'
     })
   }
