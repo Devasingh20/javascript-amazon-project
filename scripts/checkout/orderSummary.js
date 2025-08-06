@@ -149,5 +149,6 @@ export function renderOrderSummary() {
   if (cart.length === 0) {
     const emptyCartMessage = document.querySelector('.empty');
     emptyCartMessage.style.opacity = 1;
+    renderPaymentSummary();
   }
 }
