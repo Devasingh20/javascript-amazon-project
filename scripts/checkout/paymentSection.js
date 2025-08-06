@@ -26,7 +26,7 @@ export function renderPaymentSummary() {
   cart.forEach((item) => {
     cartQuantity += item.quantity;
     const product = getProduct(item.productId);
-    
+
   })
   let paymentSummaryHTML = `
     <div class="payment-summary-title">
@@ -63,12 +63,23 @@ export function renderPaymentSummary() {
           Place your order
         </button>`
   document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
-  if(!cart.length){
-    const button = document.querySelector('.js-place-order') ;
+  if (!cart.length) {
+    const button = document.querySelector('.js-place-order');
     button.style.display = 'none';
-    
+
   }
   document.querySelector('.js-place-order').addEventListener('click', async () => {
+    // Now show the Noty notification
+    new Noty({
+      type: 'success',
+      layout: 'topRight',
+      theme: 'metroui',
+      text: '🚀Your order has been placed successfully!',
+      timeout: 3000,
+      progressBar: true
+    }).show();
+    let sound = new Audio('Ting.mp3');
+    sound.play();
     try {
       const response = await fetch('https://supersimplebackend.dev/orders', {
         method: 'POST',
@@ -89,7 +100,9 @@ export function renderPaymentSummary() {
     renderOrderSummary();
     renderPaymentSummary();
     resetCart();
-    window.location.href = 'orders.html';
+    setTimeout(() => {
+      window.location.href = "orders.html";
+    }, 3000)
 
   });
 

@@ -9,10 +9,27 @@
   smaller screen sizes like a phone or a tablet). -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <style>
+    .noty_layout__topRight {
+      top: 120px !important;
+      right: 20px;
+      /* default right padding */
+    }
+  </style>
+
   <!-- Load a font called Roboto from Google Fonts. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Noty CSS -->
+  <!-- Noty Core CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/noty.css" />
+<!-- Noty Theme CSS (required for styling) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/themes/metroui.css" />
+
+  <!-- Noty JS -->
+  <script src="https://cdn.jsdelivr.net/npm/noty/lib/noty.min.js"></script>
+
 
   <!-- Here are the CSS files for this page. -->
   <link rel="stylesheet" href="styles/shared/general.css">
@@ -53,8 +70,12 @@
       </div>
     </div>
   </div>
+  <!-- Noty JS -->
+  <script src="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta-deprecated/lib/noty.min.js"></script>
   <!-- <script src="https://unpkg.com/dayjs@1.11.10/dayjs.min.js"></script>  instead of this we use import-->
   <script type="module" src="/scripts/checkout.js"></script>
+
+
 
 </body>
 
