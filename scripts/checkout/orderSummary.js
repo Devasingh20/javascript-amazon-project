@@ -110,8 +110,6 @@ export function renderOrderSummary() {
         emptyCartMessage.style.opacity = 1;
       }
       renderPaymentSummary();
-      renderOrderSummary();
-
       updateCheckout();
     });
   });
@@ -152,7 +150,5 @@ export function renderOrderSummary() {
     const emptyCartMessage = document.querySelector('.empty');
     emptyCartMessage.style.opacity = 1;
     renderPaymentSummary();
-    renderOrderSummary();
-
   }
 }
